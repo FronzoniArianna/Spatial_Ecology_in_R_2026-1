@@ -1,7 +1,7 @@
 # R code for population density
 
 # Installing packages
-# intsall.packages("spatstat")
+intsall.packages("spatstat")
 
 # Using the package(s)
 library(spatstat)
@@ -68,48 +68,118 @@ plot(elevation)
 plot(densitymap)
 
 # If you get any graphical ussue here is your friend:
-# dev.off()
+dev.off()
 
-# Change colors in our maps
-cl <- colorRampPalette(c("blue", "green", "red"))
+#Change colors in our maps 
+#wrong : cl <- colorRampPalette("blue", "green", "red")
+#why?
+> # these are elements of an array 
+> #matteo <- c(5,10,20,50,80)
 
-# Plot the density map and change its color thanks to cl
-plot(densitymap, col=cl)
+cl <- colorRampPalette (c("blue", "green", "red") 
+                        #Plot the density map and change its color thanks to cl 
+            
+# Plot the density map using this palette
+plot(density, col = cl(100))
 
-# Change colors in our maps
-cl <- colorRampPalette(c("magenta1", "green", "mediumpurple"))
-plot(densitymap, col=cl)
+#plot(densitymap, col="blue")
+plot(densitymap, col="cl")
 
-# Nuances
-cl3 <- colorRampPalette(c("magenta1", "green", "mediumpurple"))(3)
+
+cl <- colorRampPalette (c("blue", "green", "mediumpurple") 
+plot(densitymap, col="cl")
+
+#Nuances 
+cl3 <- colorRampPalette (c("blue", "green", "mediumpurple")) (3)
 plot(densitymap, col=cl3)
-
-cl10 <- colorRampPalette(c("magenta1", "green", "mediumpurple"))(10)
-plot(densitymap, col=cl10)
-
-cl100 <- colorRampPalette(c("magenta1", "green", "mediumpurple"))(100)
+ #Let's put 10 nuances 
+cl10 <- colorRampPalette(c("blue", "green", "mediumpurple")) (100)
 plot(densitymap, col=cl100)
 
-# Exercise: make a multiframe with the map with 10 nuances ontop of that with 100
+#Exercise: make a multiframe with the map with 10 nuances ontop of that with 100
+
+# --------------------------------------------------
+# CREATE COLOUR NUANCES
+# --------------------------------------------------
+
+# 3 colour nuances
+cl3 <- colorRampPalette(
+  c("blue", "green", "mediumpurple")
+)(3)
+
+plot(densitymap, col = cl3)
+
+
+# 10 colour nuances
+cl10 <- colorRampPalette(
+  c("blue", "green", "mediumpurple")
+)(10)
+
+plot(densitymap, col = cl10)
+
+
+# 100 colour nuances
+cl100 <- colorRampPalette(
+  c("blue", "green", "mediumpurple")
+)(100)
+
+plot(densitymap, col = cl100)
+
+
+# --------------------------------------------------
+# MULTIFRAME: 10 NUANCES ON TOP, 100 ON BOTTOM
+# --------------------------------------------------
+
+par(mfrow = c(2, 1))
+
+plot(densitymap, col = cl10, main = "10 nuances")
+plot(densitymap, col = cl100, main = "100 nuances")
+
+# Return to a single frame
+par(mfrow = c(1, 1))
+
+
+
+#Professor answer
 par(mfrow=c(2,1))
-plot(densitymap, col=cl10)
-plot(densitymap, col=cl100)
-
-# R colors are here:
-# https://r-charts.com/colors/
+plot (densitymap, col=cl10)
+plot (
 
 
+  
+ # --------------------------------------------------
+# SDM: SPECIES DISTRIBUTION MODELLING
+# --------------------------------------------------
+
+# Install terra (run only once)
+install.packages("terra")
+
+# Load terra
+library(terra)
+
+# Install sdm
+install.packages("sdm")
+
+# Load sdm
+library(sdm)
+
+file <- system.file("external/speices.shp",package="sdm")
+#Path to the file 
+path <- system.file("external/species.shp", packsage="sdm")
+
+  #?vect function + name of the pathway
+
+  v <- vect (f) 
 
 
+  # Import the vector data 
+ rana <- vect(path) 
+rana 
 
+  
+  
 
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
+                        
