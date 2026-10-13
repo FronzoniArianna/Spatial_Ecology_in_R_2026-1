@@ -1,4 +1,4 @@
-# Suggested movies, music, books
+# Suggested mmedia
 
 Material cited during lectures.
 
