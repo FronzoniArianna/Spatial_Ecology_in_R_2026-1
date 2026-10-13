@@ -1,4 +1,4 @@
-# Suggested mmedia
+# Suggested media
 
 Material cited during lectures.
 
